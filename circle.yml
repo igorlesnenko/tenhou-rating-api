@@ -17,4 +17,4 @@ deployment:
   production:
     branch: stable
     commands:
-      - ./deploy_prod.sh
+      - sh ./deploy_prod.sh
