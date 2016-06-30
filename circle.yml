@@ -1,9 +1,8 @@
 machine:
   services:
       - docker
-  machine:
-    node:
-      version: 6.2.2
+  node:
+    version: 6.2.2
 
 test:
   override:
