@@ -12,7 +12,6 @@ test:
 dependencies:
   override:
     - npm install
-    - sh build.sh
 
 deployment:
   production:
