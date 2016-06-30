@@ -1,0 +1,19 @@
+machine:
+  services:
+      - docker
+
+test:
+  override:
+    # no tests yet
+    - echo 1
+
+dependencies:
+  override:
+    - npm install
+    - sh build.sh
+
+deployment:
+  production:
+    branch: stable
+    commands:
+      - ./deploy_prod.sh
