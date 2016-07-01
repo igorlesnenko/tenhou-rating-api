@@ -4,4 +4,4 @@ ADD / /var/www/api/
 
 EXPOSE 5000
 
-CMD ["node /var/www/api/index.js"]
+CMD ["node", "/var/www/api/index.js"]
