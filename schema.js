@@ -30,6 +30,13 @@ const defaultArgs = {
   }
 };
 
+let playersArgs = Object.assign(defaultArgs, {
+  name: {
+    name: 'Name',
+    type: graphql.GraphQLString
+  }
+});
+
 const {nodeInterface, nodeField} = nodeDefinitions(
   (globalId) => {
     let {type, id} = fromGlobalId(globalId);
@@ -55,6 +62,12 @@ const {nodeInterface, nodeField} = nodeDefinitions(
 
 const defaultResolve = (model, cond = {}) => (root, args, ctx, { fieldASTs }) => {
   return new Promise(function (resolve, reject) {
+
+    // Quick fix for players querying
+    if (args.name) {
+      cond.name = args.name;
+    }
+
     model.find(cond, (err, items)=> {
       if (err) {
         return reject(err);
