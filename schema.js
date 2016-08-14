@@ -30,12 +30,24 @@ const defaultArgs = {
   }
 };
 
-let playersArgs = Object.assign(defaultArgs, {
+let playersArgs = {
+  limit: {
+    name: 'Limit',
+    type: graphql.GraphQLInt
+  },
+  sort: {
+    name: 'Sort',
+    type: graphql.GraphQLString
+  },
+  order: {
+    name: 'Order',
+    type: graphql.GraphQLInt
+  },
   name: {
     name: 'Name',
     type: graphql.GraphQLString
   }
-});
+};
 
 const {nodeInterface, nodeField} = nodeDefinitions(
   (globalId) => {
@@ -60,8 +72,13 @@ const {nodeInterface, nodeField} = nodeDefinitions(
   }
 );
 
-const defaultResolve = (model, cond = {}) => (root, args, ctx, { fieldASTs }) => {
+const defaultResolve = (model) => (root, args, ctx, { fieldASTs }) => {
   return new Promise(function (resolve, reject) {
+
+    let cond = {};
+
+    console.log('args', args);
+    console.log('cond', cond);
 
     // Quick fix for players querying
     if (args.name) {
