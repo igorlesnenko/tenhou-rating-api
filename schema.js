@@ -72,14 +72,9 @@ const {nodeInterface, nodeField} = nodeDefinitions(
   }
 );
 
-const defaultResolve = (model) => (root, args, ctx, { fieldASTs }) => {
+// TODO: cond is fixed
+const defaultResolve = (model, cond = {}) => (root, args, ctx, { fieldASTs }) => {
   return new Promise(function (resolve, reject) {
-
-    let cond = {};
-
-    console.log('args', args);
-    console.log('cond', cond);
-
     // Quick fix for players querying
     if (args.name) {
       cond.name = args.name;
@@ -180,12 +175,16 @@ const RootQuery = new graphql.GraphQLObjectType({
     players: {
       type: new graphql.GraphQLList(PlayerType),
       args: playersArgs,
-      resolve: defaultResolve(Player)
+      resolve: function(player, args, ctx, { fieldASTs }) {
+        return defaultResolve(Player)(...arguments);
+      }
     },
     games: {
       type: new graphql.GraphQLList(GameType),
       args: defaultArgs,
-      resolve: defaultResolve(Game)
+      resolve: function(player, args, ctx, { fieldASTs }) {
+        return defaultResolve(Game)(...arguments);
+      }
     }
   })
 });
