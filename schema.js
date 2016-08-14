@@ -162,7 +162,7 @@ const RootQuery = new graphql.GraphQLObjectType({
     node: nodeField,
     players: {
       type: new graphql.GraphQLList(PlayerType),
-      args: defaultArgs,
+      args: playersArgs,
       resolve: defaultResolve(Player)
     },
     games: {
