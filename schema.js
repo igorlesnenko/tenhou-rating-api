@@ -124,7 +124,7 @@ let PlayerType = new graphql.GraphQLObjectType({
         type: graphql.GraphQLInt
       },
       rating: {
-        type: graphql.GraphQLInt
+        type: graphql.GraphQLFloat
       },
       resultHistory: {
         type: new graphql.GraphQLList(graphql.GraphQLString)
