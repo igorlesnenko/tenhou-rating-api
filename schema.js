@@ -133,7 +133,7 @@ let PlayerType = new graphql.GraphQLObjectType({
         type: new graphql.GraphQLList(graphql.GraphQLInt)
       },
       ratingHistory: {
-        type: new graphql.GraphQLList(graphql.GraphQLInt)
+        type: new graphql.GraphQLList(graphql.GraphQLFloat)
       },
       lastGame: {
         type: graphql.GraphQLString
