@@ -32,16 +32,16 @@ export default new Player({
     },
 
     firstRate: {
-      type: Number
+      type: 'Float'
     },
     secondRate: {
-      type: Number
+      type: 'Float'
     },
     thirdRate: {
-      type: Number
+      type: 'Float'
     },
     fourthRate: {
-      type: Number
+      type: 'Float'
     },
 
     resultHistory: {
