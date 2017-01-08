@@ -4,4 +4,4 @@ ADD / /var/www/api/
 
 EXPOSE 5000
 
-CMD ["node run start"]
+CMD ["npm run start"]
