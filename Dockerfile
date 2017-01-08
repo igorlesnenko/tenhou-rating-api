@@ -1,7 +1,7 @@
-FROM node:6-wheezy
+FROM node:7.4-wheezy
 
 ADD / /var/www/api/
 
 EXPOSE 5000
 
-CMD ["node", "/var/www/api/index.js"]
+CMD ["node run start"]

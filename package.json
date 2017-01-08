@@ -1,32 +1,22 @@
 {
   "name": "tenhou-rating-api",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node --harmony-async-await index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@risingstack/graffiti": "^3.0.4",
-    "@risingstack/graffiti-mongoose": "^5.1.0",
-    "graphql": "^0.6.0",
-    "graphql-relay": "^0.4.2",
-    "koa": "^2.0.0",
-    "koa-bodyparser": "^3.1.0",
-    "koa-convert": "^1.2.0",
-    "koa-cors": "0.0.16",
-    "koa-graphql": "^0.5.3",
-    "koa-mount": "^2.0.0",
-    "lodash": "^4.17.2",
-    "mongoose": "^4.4.20"
+    "babel-polyfill": "^6.20.0",
+    "babel-register": "^6.18.0",
+    "spikenail": "^0.4.0"
   },
   "devDependencies": {
-    "babel-core": "^6.9.1",
-    "babel-polyfill": "^6.9.1",
-    "babel-preset-es2015-node5": "^1.2.0",
-    "babel-preset-stage-0": "^6.5.0",
-    "babel-register": "^6.9.0"
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-async-to-generator": "^6.16.0",
+    "babel-preset-es2015-node5": "^1.2.0"
   }
 }

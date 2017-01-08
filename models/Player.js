@@ -1,21 +1,68 @@
-import mongoose from 'mongoose';
+import { MongoDBModel } from 'spikenail';
 
-const playerSchema = mongoose.Schema({
-  name: String,
-  gamesCount: Number,
-  rating: Number,
+class Player extends MongoDBModel {}
 
-  avgRank: Number,
-  totalPoints: Number,
-  firstRate: Number,
-  secondRate: Number,
-  thirdRate: Number,
-  fourthRate: Number,
+export default new Player({
+  name: 'player',
+  providerOptions: {
+    collection: 'user'
+  },
+  properties: {
+    id: {
+      type: 'id'
+    },
+    name: {
+      type: String
+    },
+    gamesCount: {
+      type: Number
+    },
+    rating: {
+      type: Number
+    },
+    lobby: {
+      type: String
+    },
 
-  resultHistory: Array,
-  rankHistory: Array,
-  ratingHistory: Array,
-  lastGame: Date
+    avgRank: {
+      type: Number
+    },
+    totalPoints: {
+      type: Number
+    },
+
+    firstRate: {
+      type: Number
+    },
+    secondRate: {
+      type: Number
+    },
+    thirdRate: {
+      type: Number
+    },
+    fourthRate: {
+      type: Number
+    },
+
+    resultHistory: {
+      type: Array
+    },
+    rankHistory: {
+      type: Array
+    },
+    ratingHistory: {
+      type: Array
+    },
+    lastGame: {
+      type: Date
+    },
+    games: {
+      relation: 'hasMany',
+      ref: 'game',
+      dependsOn: ['name'],
+      getConditions: function(_) {
+        return { players: _.name }
+      }
+    }
+  }
 });
-
-export default mongoose.model('user', playerSchema, 'user');

@@ -1,34 +1,87 @@
-import mongoose from 'mongoose';
+import { MongoDBModel } from 'spikenail';
 
-const gameSchema = mongoose.Schema({
+class Game extends MongoDBModel {}
 
-  date: Date, // UTC date
-  time: String,
-  type: String,
-  lobby: String,
+export default new Game({
+  name: 'game',
+  providerOptions: {
+    collection: 'game',
+  },
+  properties: {
+    id: {
+      type: 'id'
+    },
 
-  gameStr: String,
-  hash: String,
+    date: {
+      type: Date
+    },
+    time: {
+      type: String
+    },
+    type: {
+      type: String
+    },
+    lobby: {
+      type: String
+    },
 
-  first: String,
-  second: String,
-  third: String,
-  fourth: String,
+    gameStr: {
+      type: String
+    },
+    hash: {
+      type: String
+    },
 
-  players: Array,
-  results: Array,
-  ratings: Array,
-  ratingChanges: Array,
+    first: {
+      type: String
+    },
+    second: {
+      type: String
+    },
+    third: {
+      type: String
+    },
+    fourth: {
+      type: String
+    },
 
-  firstResult: String,
-  secondResult: String,
-  thirdResult: String,
-  fourthResult: String,
+    players: {
+      type: Array
+    },
+    results: {
+      type: Array
+    },
+    ratings: {
+      type: Array
+    },
+    ratingChanges: {
+      type: Array
+    },
 
-  firstRatingChange: Number,
-  secondRatingChange: Number,
-  thirdRatingChange: Number,
-  fourthRatingChange: Number
+    firstResult: {
+      type: String
+    },
+    secondResult: {
+      type: String
+    },
+    thirdResult: {
+      type: String
+    },
+    fourthResult: {
+      type: String
+    },
+
+    firstRatingChange: {
+      type: Number
+    },
+    secondRatingChange: {
+      type: Number
+    },
+    thirdRatingChange: {
+      type: Number
+    },
+    fourthRatingChange: {
+      type: Number
+    }
+  }
 });
-
-export default mongoose.model('game', gameSchema, 'game');

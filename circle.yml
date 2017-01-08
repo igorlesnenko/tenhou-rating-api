@@ -2,7 +2,7 @@ machine:
   services:
       - docker
   node:
-    version: 6.2.2
+    version: 7.4
 
 test:
   override:
