@@ -25,7 +25,7 @@ export default new Player({
     },
 
     avgRank: {
-      type: Number
+      type: 'Float'
     },
     totalPoints: {
       type: Number
