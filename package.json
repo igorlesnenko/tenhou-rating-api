@@ -12,7 +12,7 @@
   "dependencies": {
     "babel-polyfill": "^6.20.0",
     "babel-register": "^6.18.0",
-    "spikenail": "0.x"
+    "spikenail": "0.19.x"
   },
   "devDependencies": {
     "babel-plugin-add-module-exports": "^0.2.1",

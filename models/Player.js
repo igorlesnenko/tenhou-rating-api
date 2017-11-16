@@ -18,7 +18,7 @@ export default new Player({
       type: Number
     },
     rating: {
-      type: Number
+      type: 'Float'
     },
     lobby: {
       type: String
@@ -60,9 +60,16 @@ export default new Player({
       relation: 'hasMany',
       ref: 'game',
       dependsOn: ['name'],
-      getConditions: function(_) {
-        return { players: _.name }
+      getCondition: function(_) {
+        let names = _.map(i => i.name);
+        return { players: { '$in': names } }
       }
     }
-  }
+  },
+  acls: [{
+    allow: false
+  }, {
+    allow: true,
+    actions: ['read']
+  }]
 });

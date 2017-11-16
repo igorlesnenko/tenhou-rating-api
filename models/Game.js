@@ -83,5 +83,11 @@ export default new Game({
     fourthRatingChange: {
       type: Number
     }
-  }
+  },
+  acls: [{
+    allow: false
+  }, {
+    allow: true,
+    actions: ['read']
+  }]
 });
